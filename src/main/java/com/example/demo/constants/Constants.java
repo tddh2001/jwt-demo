@@ -5,6 +5,12 @@ public class Constants {
     public static final String USER_ADD_SUCCESS = "USER_ADD_SUCCESS";
     public static final String USER_NOT_FOUND = "USER_NOT_FOUND";
     public static final String SECRET_CODE = "2B4B6250655368566D597133743677397A244226452948404D635166546A576E";
+    public static final String PASSWORD_MUST_NOT_NULL = "PASSWORD_MUST_NOT_NULL";
+    public static final String ROLE_MUST_NOT_NULL = "ROLE_MUST_NOT_NULL";
+    public static final String REGISTER_SUCCESSFULLY = "REGISTER_SUCCESSFULLY";
+    public static final String USER_EXISTED = "USER_EXISTED";
+    public static final String INCORRECT_PASSWORD = "INCORRECT_PASSWORD";
+    public static final String INCORRECT_ROLE = "INCORRECT_ROLE";
 
     private Constants() {}
 
