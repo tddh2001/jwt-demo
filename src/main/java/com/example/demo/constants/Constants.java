@@ -11,6 +11,7 @@ public class Constants {
     public static final String USER_EXISTED = "USER_EXISTED";
     public static final String INCORRECT_PASSWORD = "INCORRECT_PASSWORD";
     public static final String INCORRECT_ROLE = "INCORRECT_ROLE";
+    public static final String LOGIN_SUCCESS = "LOGIN_SUCCESS";
 
     private Constants() {}
 

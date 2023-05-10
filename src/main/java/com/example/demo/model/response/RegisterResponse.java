@@ -3,7 +3,6 @@ package com.example.demo.model.response;
 import lombok.Data;
 
 @Data
-public class UserResponse {
+public class RegisterResponse {
     private String message;
-    private String token;
 }

@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.model.db.User;
 import com.example.demo.model.request.AuthRequest;
-import com.example.demo.model.response.UserResponse;
+import com.example.demo.model.response.RegisterResponse;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,8 +31,8 @@ public class UserService{
         this.passwordEncoder = passwordEncoder;
     }
 
-    public UserResponse createUser(User user) {
-        UserResponse response = new UserResponse();
+    public RegisterResponse register(User user) {
+        RegisterResponse response = new RegisterResponse();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         response.setMessage(USER_ADD_SUCCESS);

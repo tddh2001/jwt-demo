@@ -4,6 +4,7 @@ import com.example.demo.constants.Constants;
 import com.example.demo.model.db.User;
 import com.example.demo.model.request.AuthRequest;
 import com.example.demo.model.request.UserRequest;
+import com.example.demo.model.response.RegisterResponse;
 import com.example.demo.model.response.UserResponse;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.JWTService;
@@ -38,8 +39,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public UserResponse createUser(@RequestBody UserRequest request) {
-        UserResponse response = new UserResponse();
+    public RegisterResponse register(@RequestBody UserRequest request) {
+        RegisterResponse response = new RegisterResponse();
         try {
             request.validate();
         } catch (IllegalArgumentException e) {
@@ -60,11 +61,11 @@ public class UserController {
         user.setPassword(request.getPassword());
         user.setRoles(request.getRoles());
         response.setMessage(REGISTER_SUCCESSFULLY);
-        return userService.createUser(user);
+        return userService.register(user);
     }
 
     @PostMapping("/login")
-    public UserResponse authenticateAndGetToken(@RequestBody AuthRequest request) {
+    public UserResponse login(@RequestBody AuthRequest request) {
         UserResponse response = new UserResponse();
         try {
             request.validate();
@@ -79,7 +80,8 @@ public class UserController {
             boolean checkPassword = encoder.matches(request.getPassword(), user.getPassword());
             if (checkPassword) {
                 String token = userService.login(request);
-                response.setMessage(token);
+                response.setToken(token);
+                response.setMessage(Constants.LOGIN_SUCCESS);
             } else {
                 response.setMessage(INCORRECT_PASSWORD);
             }
